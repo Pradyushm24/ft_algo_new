@@ -1,0 +1,13 @@
+# Python-related files and directories
+_pycache_/
+*.pyc
+
+# Virtual environment directory
+venv/
+
+# Log files
+*.log
+
+# Sensitive files to be ignored
+config.json
+token.txt

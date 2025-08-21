@@ -1,0 +1,15 @@
+{
+    "flattrade_api": {
+        "api_key": "a2f996137c6941d1a548abe55908afb9",
+        "api_secret": "2025.c5a03507a5a34b1e9bb831c0135c9b8e87ae869115d01229",
+        "totp_secret": "5A5A34TP43CU74G6VHJ5IA6ILAA7442N"
+    },
+    "market_data": {
+        "symbols": ["NSE:FINNIFTY"]
+    },
+    "logging": {
+        "level": "INFO",
+        "log_file": "bot.log"
+    },
+    "paper_trading": true
+}

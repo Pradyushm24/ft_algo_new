@@ -1,11 +1,11 @@
-import logging
+limport logging
 import json
 import os
 import time
 from typing import Dict, Any, Optional
 import pyotp
 
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 
 class FlattradeAuth:
     """Handles Flattrade API authentication and token management."""

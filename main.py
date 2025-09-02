@@ -16,8 +16,9 @@ import calendar
 from typing import Dict, List, Any, Optional
 import signal
 
-# The following line is for local development and should be handled with a .gitignore file.
-# from flattrade import FlatTrade
+# The following two lines are crucial for finding the flattrade module
+# Make sure the path is correct for your system.
+sys.path.append(os.path.join(os.path.dirname(__file__), 'pythonAPI'))
 
 # Local Imports
 from auth import FlattradeAuth
@@ -44,11 +45,17 @@ setup_logging({'logging': {'level': 'INFO'}})
 logger = logging.getLogger(__name__)
 
 # --- Configuration & State ---
-# These variables should be loaded from a separate, secure file (e.g., config.json)
-TELEGRAM_BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
-FLATTRADE_API_KEY = "YOUR_FLATTRADE_API_KEY"
-FLATTRADE_API_SECRET = "YOUR_FLATTRADE_API_SECRET"
-FLATTRADE_USER_ID = "YOUR_FLATTRADE_USER_ID"
+# Load credentials from config.json
+try:
+    with open('config.json', 'r') as f:
+        config_data = json.load(f)
+        TELEGRAM_BOT_TOKEN = config_data['telegram_bot_token']
+        FLATTRADE_API_KEY = config_data['flattrade_api_key']
+        FLATTRADE_API_SECRET = config_data['flattrade_api_secret']
+        FLATTRADE_USER_ID = config_data['flattrade_user_id']
+except FileNotFoundError:
+    print("Error: config.json file not found. Please create it and add your credentials.")
+    exit()
 
 # Initialize state variables
 flat_trade = None
@@ -170,5 +177,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-                 
+    
+
 

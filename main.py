@@ -16,9 +16,8 @@ import calendar
 from typing import Dict, List, Any, Optional
 import signal
 
-# The following two lines are crucial for finding the flattrade module
-# Make sure the path is correct for your system.
-sys.path.append(os.path.join(os.path.dirname(__file__), 'pythonAPI'))
+# The following line is for local development and should be handled with a .gitignore file.
+# from flattrade import FlatTrade
 
 # Local Imports
 from auth import FlattradeAuth
@@ -45,11 +44,11 @@ setup_logging({'logging': {'level': 'INFO'}})
 logger = logging.getLogger(__name__)
 
 # --- Configuration & State ---
-# Paste your credentials here
-TELEGRAM_BOT_TOKEN = "8252094683:AAGh1f_CiskbIGkDZ0Yv3dRO51z00wKzL7M"
-FLATTRADE_API_KEY = "a2f996137c6941d1a548abe55908afb9"
-FLATTRADE_API_SECRET = "2025.c5a03507a5a34b1e9bb831c0135c9b8e87ae869115d01229"
-FLATTRADE_USER_ID = "FT040233"
+# These variables should be loaded from a separate, secure file (e.g., config.json)
+TELEGRAM_BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
+FLATTRADE_API_KEY = "YOUR_FLATTRADE_API_KEY"
+FLATTRADE_API_SECRET = "YOUR_FLATTRADE_API_SECRET"
+FLATTRADE_USER_ID = "YOUR_FLATTRADE_USER_ID"
 
 # Initialize state variables
 flat_trade = None
@@ -171,4 +170,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+                 
+
